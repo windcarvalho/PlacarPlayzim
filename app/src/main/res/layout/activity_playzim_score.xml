@@ -10,6 +10,7 @@
         android:id="@+id/tbStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:text="Status do Jogo"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -21,7 +22,7 @@
         android:id="@+id/tvTeamA"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
+        android:layout_marginEnd="10dp"
         android:text="TeamA"
         android:textAlignment="viewEnd"
         android:textSize="24sp"
@@ -63,7 +64,6 @@
         android:id="@+id/btTeamA"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
         android:layout_weight="1"
         android:onClick="onClickBtTeamA"
         android:text="00"
@@ -72,13 +72,13 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guidelineMeioTela"
+        app:layout_constraintStart_toEndOf="@+id/tvGameLabelA"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/btTeamB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
         android:layout_weight="1"
         android:onClick="onClickBtTeamB"
         android:text="00"
@@ -86,6 +86,9 @@
         android:textSize="140sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tvGameLabelB"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btTeamA"
         app:layout_constraintStart_toStartOf="@+id/guidelineMeioTela"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -108,111 +111,112 @@
         android:id="@+id/tvGameLabelA"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="5dp"
         android:text="Games"
         android:textColor="@color/colorTeamA"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/tvGameTeamA"
         app:layout_constraintEnd_toStartOf="@+id/btTeamA"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tvSetLabelA" />
 
     <TextView
         android:id="@+id/tvGameTeamA"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
         android:text="00"
         android:textColor="#ff979797"
         android:textSize="42sp"
         android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btTeamA"
         app:layout_constraintEnd_toEndOf="@+id/tvGameLabelA"
-        app:layout_constraintStart_toStartOf="@+id/tvGameLabelA"
-        app:layout_constraintTop_toBottomOf="@+id/tvGameLabelA" />
+        app:layout_constraintStart_toStartOf="@+id/tvGameLabelA" />
 
     <TextView
         android:id="@+id/tvSetLabelA"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="5dp"
         android:text="Sets"
         android:textColor="@color/colorTeamA"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/tvSetA"
         app:layout_constraintEnd_toStartOf="@+id/tvGameLabelA"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/tvSetA"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
         android:text="00"
         android:textColor="#ff979797"
         android:textSize="42sp"
         android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tvGameTeamA"
         app:layout_constraintEnd_toEndOf="@+id/tvSetLabelA"
-        app:layout_constraintStart_toStartOf="@+id/tvSetLabelA"
-        app:layout_constraintTop_toBottomOf="@+id/tvSetLabelA" />
+        app:layout_constraintStart_toStartOf="@+id/tvSetLabelA" />
 
     <TextView
         android:id="@+id/tvGameLabelB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
+        android:layout_marginBottom="5dp"
         android:text="Games"
         android:textColor="@color/colorTeamB"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btTeamB"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tvGameTeamB"
+        app:layout_constraintEnd_toStartOf="@+id/tvSetLabelB"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btTeamB" />
 
     <TextView
         android:id="@+id/tvGameTeamB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
         android:text="00"
         android:textColor="#ff979797"
         android:textSize="42sp"
         android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btTeamB"
         app:layout_constraintEnd_toEndOf="@+id/tvGameLabelB"
-        app:layout_constraintStart_toStartOf="@+id/tvGameLabelB"
-        app:layout_constraintTop_toBottomOf="@+id/tvGameLabelB" />
+        app:layout_constraintStart_toStartOf="@+id/tvGameLabelB" />
 
     <TextView
         android:id="@+id/tvSetLabelB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginBottom="5dp"
         android:text="Sets"
         android:textColor="@color/colorTeamB"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tvGameLabelB"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tvSetB"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tvGameLabelB" />
 
     <TextView
         android:id="@+id/tvSetB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
         android:text="00"
         android:textColor="#ff979797"
         android:textSize="42sp"
         android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btTeamB"
         app:layout_constraintEnd_toEndOf="@+id/tvSetLabelB"
-        app:layout_constraintStart_toStartOf="@+id/tvSetLabelB"
-        app:layout_constraintTop_toBottomOf="@+id/tvSetLabelB" />
+        app:layout_constraintStart_toStartOf="@+id/tvSetLabelB" />
 
     <ImageView
         android:id="@+id/imageViewTeamA"
         android:layout_width="58dp"
         android:layout_height="57dp"
-        android:layout_marginEnd="20dp"
-        app:layout_constraintBottom_toBottomOf="@+id/tvTeamA"
-        app:layout_constraintEnd_toStartOf="@+id/guidelineMeioTela"
+        app:layout_constraintBottom_toTopOf="@+id/btTeamA"
+        app:layout_constraintEnd_toEndOf="@+id/btTeamA"
         app:layout_constraintTop_toTopOf="@+id/tvTeamA"
         app:srcCompat="@mipmap/team_a_game_round" />
 
@@ -220,9 +224,8 @@
         android:id="@+id/imageViewTeamB"
         android:layout_width="58dp"
         android:layout_height="57dp"
-        android:layout_marginStart="20dp"
         app:layout_constraintBottom_toBottomOf="@+id/imageViewTeamA"
-        app:layout_constraintStart_toStartOf="@+id/guidelineMeioTela"
+        app:layout_constraintStart_toStartOf="@+id/btTeamB"
         app:layout_constraintTop_toTopOf="@+id/imageViewTeamA"
         app:srcCompat="@mipmap/team_b_game_round" />
 </androidx.constraintlayout.widget.ConstraintLayout>
