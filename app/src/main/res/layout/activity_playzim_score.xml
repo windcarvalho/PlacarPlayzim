@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.playzim.activities.Playzim_Score_Activity">
+    tools:context="com.playzim.activities.Playzim_Score_Activity"
+    android:background="@drawable/placar_background">
 
     <TextView
         android:id="@+id/tbStatus"
@@ -46,6 +47,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
+        android:drawableLeft="@drawable/timer_icon"
         android:textColor="#ff979797"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -96,16 +98,16 @@
         android:id="@+id/btVoltar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/back_icon"
+        android:drawableTop="@drawable/back_icon"
         android:minHeight="48dp"
         android:onClick="onClickUndo"
-        android:text="voltar"
-        android:textSize="20sp"
+        android:text="Pontuação"
+        android:textAlignment="center"
+        android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/guidelineMeioTela"
-        app:layout_constraintEnd_toStartOf="@+id/guidelineMeioTela"
-        app:layout_constraintStart_toStartOf="@+id/guidelineMeioTela"
-        app:layout_constraintTop_toBottomOf="@+id/btTeamA" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btTeamB" />
 
     <TextView
         android:id="@+id/tvGameLabelA"
@@ -228,4 +230,28 @@
         app:layout_constraintStart_toStartOf="@+id/btTeamB"
         app:layout_constraintTop_toTopOf="@+id/imageViewTeamA"
         app:srcCompat="@mipmap/team_b_game_round" />
+
+    <TextView
+        android:id="@+id/tvDescGame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Descrição do Jogo"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/imageViewTeamA"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="3dp"
+        android:layout_height="0dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toBottomOf="@+id/btTeamA"
+        app:layout_constraintEnd_toStartOf="@+id/btTeamB"
+        app:layout_constraintStart_toEndOf="@+id/btTeamA"
+        app:layout_constraintTop_toTopOf="@+id/imageViewTeamA"
+        app:layout_constraintVertical_bias="0.0" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
