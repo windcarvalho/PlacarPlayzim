@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="40dp"
+        tools:context="com.playzim.activities.ConfigActivity">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/categoria_layout"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/categoria"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/categoria"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Categoria"
+                tools:ignore="TouchTargetSizeCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/time1_layout"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/categoria_layout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/time1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Primeiro Time" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/time2_layout"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.531"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/time1_layout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/time2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Segundo Time" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/primeiroSaqueTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Primeiro Saque"
+            app:layout_constraintStart_toStartOf="@+id/time2_layout"
+            app:layout_constraintTop_toBottomOf="@+id/time2_layout" />
+
+        <RadioGroup
+            android:id="@+id/primeiroSaque"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="@+id/primeiroSaqueTxt"
+            app:layout_constraintTop_toBottomOf="@+id/primeiroSaqueTxt">
+
+            <RadioButton
+                android:id="@+id/primSaqTime1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Time1" />
+
+            <RadioButton
+                android:id="@+id/primSaqTime2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Time2" />
+
+        </RadioGroup>
+
+
+
+
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Quantidade de Sets"
+            app:layout_constraintStart_toStartOf="@+id/primeiroSaqueTxt"
+            app:layout_constraintTop_toBottomOf="@+id/primeiroSaque" />
+
+        <RadioGroup
+            android:id="@+id/qtdSets"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/textView">
+
+            <RadioButton
+                android:id="@+id/radioButton3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="1" />
+
+            <RadioButton
+                android:id="@+id/radioButton4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="2" />
+
+            <RadioButton
+                android:id="@+id/radioButton5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="3" />
+
+            \
+            <RadioButton
+                android:id="@+id/radioButtonq212"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/qtdSetsPersonalizado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Defina um valor"
+                tools:ignore="TouchTargetSizeCheck" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Games por Set"
+            app:layout_constraintStart_toStartOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/qtdSets" />
+
+        <RadioGroup
+            android:id="@+id/qtdGames"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="@+id/textView2"
+            app:layout_constraintTop_toBottomOf="@+id/textView2">
+
+            <RadioButton
+                android:id="@+id/radioButton13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="2" />
+
+            <RadioButton
+                android:id="@+id/radioButton24"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="4" />
+
+            <RadioButton
+                android:id="@+id/radioButtonq5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="6" />
+            <RadioButton
+                android:id="@+id/radioButtonq215"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="" />
+  <!-->         <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/ca434343tegoria"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Defina um valor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"> -->
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/qtdGamesPersonalizado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Defina um valor"
+                tools:ignore="TouchTargetSizeCheck" />
+<!--            </com.google.android.material.textfield.TextInputLayout> -->
+
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Número de pontos para fechar o Tie-Brake"
+            app:layout_constraintStart_toStartOf="@+id/textView2"
+            app:layout_constraintTop_toBottomOf="@+id/qtdGames" />
+
+
+
+        <RadioGroup
+            android:id="@+id/ptsTieBrake"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="@+id/textView3"
+            app:layout_constraintTop_toBottomOf="@+id/textView3">
+
+            <RadioButton
+                android:id="@+id/radioButton1233"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="7" />
+
+            <RadioButton
+                android:id="@+id/radioButtonq2122225"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/qtdPtsTiePersonalizado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Defina um valor"
+                tools:ignore="TouchTargetSizeCheck" />
+        </RadioGroup>
+
+        <CheckBox
+            android:id="@+id/supertie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Último Set em modo SuperTie?"
+            app:layout_constraintStart_toStartOf="@+id/ptsTieBrake"
+            app:layout_constraintTop_toBottomOf="@+id/ptsTieBrake" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Número de pontos para fechar SuperTie"
+            app:layout_constraintStart_toStartOf="@+id/textView3"
+            app:layout_constraintTop_toBottomOf="@+id/supertie" />
+
+        <RadioGroup
+            android:id="@+id/pontosSuperTie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="@+id/textView4"
+            app:layout_constraintTop_toBottomOf="@+id/textView4">
+
+            <RadioButton
+                android:id="@+id/radioButton1233333"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="10" />
+
+            <RadioButton
+                android:id="@+id/radioButtonq2133322225"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/qtdPtsSuperTiePersonalizado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Defina um valor"
+                tools:ignore="TouchTargetSizeCheck" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:onClick="onClickBtMatch"
+            android:text="Iniciar Jogo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pontosSuperTie" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -17,6 +17,8 @@ class Playzim_Score_Activity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_playzim_score)
+        val intent = getIntent()
+        game = intent.getSerializableExtra("GAME") as GameBT
         initGameConf()
         startGameCount()
     }
@@ -34,7 +36,7 @@ class Playzim_Score_Activity : AppCompatActivity() {
         update_score_screen()
     }
    fun initGameConf(){
-       game = GameBT("Trinta/Paulo","Marcio/Pordeus",3,4,7,true,10,TeamSide.TEAM_A)
+//       game = GameBT("Trinta/Paulo","Marcio/Pordeus",3,4,7,true,10,TeamSide.TEAM_A)
 
        // Team Names
        val tvTeamA = findViewById<TextView>(R.id.tvTeamA)

@@ -15,7 +15,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun onClickBtMatch(v: View){
-        val it_match = Intent(this, Playzim_Score_Activity::class.java).apply{}
-        startActivity(it_match)
+//        val it_match = Intent(this, Playzim_Score_Activity::class.java).apply{}
+//        startActivity(it_match)
+        val it_match = Intent(this, ConfigActivity::class.java).apply{}
+        startActivity(it_match);
+
     }
 }

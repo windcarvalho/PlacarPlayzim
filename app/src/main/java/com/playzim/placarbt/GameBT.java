@@ -2,10 +2,11 @@ package com.playzim.placarbt;
 
 import static java.lang.Math.abs;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GameBT {
+public class GameBT implements Serializable {
 
     private String teamA;
     private String teamB;

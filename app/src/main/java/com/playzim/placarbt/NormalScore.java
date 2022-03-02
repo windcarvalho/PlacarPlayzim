@@ -2,6 +2,8 @@ package com.playzim.placarbt;
 
 import static java.lang.Math.abs;
 
+import java.io.Serializable;
+
 public class NormalScore extends ScoreManager {
 
     public NormalScore(GameBT gameBT) {
@@ -33,7 +35,10 @@ public class NormalScore extends ScoreManager {
             gameBT.getGames()[0] = 0;
             gameBT.getGames()[1] = 0;
             setHasFinished = true;
-        } else if ((gameBT.getGames()[0] == gameBT.getMaxGames()) && (gameBT.getGames()[1] == gameBT.getMaxGames())) {
+        } else if ( (gameBT.getMaxGames() == 4) && (gameBT.getGames()[0] == 3) && (gameBT.getGames()[1] == 3)) { // Caso particular para Sets de 3 Games
+            gameBT.setScoreManager(new TieBrakeScore(gameBT));
+        }
+        else if ((gameBT.getGames()[0] == gameBT.getMaxGames()) && (gameBT.getGames()[1] == gameBT.getMaxGames())) {
             gameBT.setScoreManager(new TieBrakeScore(gameBT));
         }
     }

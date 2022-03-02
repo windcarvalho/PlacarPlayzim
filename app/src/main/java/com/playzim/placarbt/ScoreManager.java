@@ -1,6 +1,8 @@
 package com.playzim.placarbt;
 
-public abstract class ScoreManager {
+import java.io.Serializable;
+
+public abstract class ScoreManager implements Serializable {
 	
 	protected GameBT gameBT;
 	protected boolean setHasFinished;

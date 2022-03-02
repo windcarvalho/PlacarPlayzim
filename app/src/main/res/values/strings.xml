@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Placar Playzim</string>
+    <string name="label">Descrição do Jogo</string>
+    <string name="categoria">Categoria</string>
+    <string name="label_1">Time1</string>
+    <string name="label_2">Time2</string>
 
 </resources>
