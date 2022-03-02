@@ -69,16 +69,28 @@ class Playzim_Score_Activity : AppCompatActivity() {
 
         //update points score
         val btTeamA = findViewById<TextView>(R.id.btTeamA)
-        btTeamA.text= game?.points?.get(0).toString()
-        if ((btTeamA.text as String).equals("0",true)){
-            btTeamA.text="00"
+        var pontTeam=game?.points?.get(0)
+        if (pontTeam!! < 10) {
+            btTeamA.text = "0"+pontTeam
+        }else{
+            btTeamA.text=""+pontTeam
         }
 
+        //if ((btTeamA.text as String).equals("0",true)){
+          //  btTeamA.text="00"
+        //}
+
         val btTeamB = findViewById<TextView>(R.id.btTeamB)
-        btTeamB.text= game?.points?.get(1).toString()
-        if ((btTeamB.text as String).equals("0",true)){
-            btTeamB.text="00"
+        pontTeam=game?.points?.get(1)
+        if (pontTeam!! < 10) {
+            btTeamB.text = "0"+pontTeam
+        }else{
+            btTeamB.text=""+pontTeam
         }
+        //btTeamB.text= game?.points?.get(1).toString()
+       // if ((btTeamB.text as String).equals("0",true)){
+         //   btTeamB.text="00"
+        //}
 
 
         //update games
