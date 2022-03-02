@@ -16,7 +16,7 @@
             android:id="@+id/categoria_layout"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:hint="@string/categoria"
+            android:hint="Descrição do Jogo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -25,7 +25,8 @@
                 android:id="@+id/categoria"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Categoria"
+                android:hint="Descrição do Jogo"
+                android:text="Beach Tennis"
                 tools:ignore="TouchTargetSizeCheck" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -43,7 +44,8 @@
                 android:id="@+id/time1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Primeiro Time" />
+                android:hint="Primeiro Time"
+                tools:text="Time A" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -60,7 +62,8 @@
                 android:id="@+id/time2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Segundo Time" />
+                android:hint="Segundo Time"
+                android:text="Time B" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -84,6 +87,7 @@
                 android:id="@+id/primSaqTime1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:checked="true"
                 android:text="Time1" />
 
             <RadioButton
@@ -125,6 +129,7 @@
                 android:id="@+id/radioButton4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:checked="true"
                 android:text="2" />
 
             <RadioButton
@@ -177,6 +182,7 @@
                 android:id="@+id/radioButton24"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:checked="true"
                 android:text="4" />
 
             <RadioButton
@@ -233,6 +239,7 @@
                 android:id="@+id/radioButton1233"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:checked="true"
                 android:text="7" />
 
             <RadioButton

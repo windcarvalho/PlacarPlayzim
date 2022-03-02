@@ -1,6 +1,8 @@
 package com.playzim.placarbt;
 
-public class GameState {
+import java.io.Serializable;
+
+public class GameState implements Serializable {
 
     private int[] sets;
     private int[] games;

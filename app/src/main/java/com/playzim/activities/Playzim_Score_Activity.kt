@@ -1,7 +1,6 @@
 package com.playzim.activities
 
 import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -10,8 +9,8 @@ import android.view.animation.AnimationUtils
 import android.widget.Chronometer
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import com.playzim.activities.placar.R
-import com.playzim.placarbt.GameBT
 import com.playzim.placarbt.*
 
 
@@ -21,10 +20,22 @@ class Playzim_Score_Activity : AppCompatActivity(), Animation.AnimationListener 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_playzim_score)
+        game= getIntent().getExtras()?.getSerializable("GAME") as GameBT?
         initAnimation()
         initGameConf()
         startGameCount()
 
+    }
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        Log.i("placar", "Salvando o jogo")
+        outState.putSerializable("GAME", game)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        Log.i("placar", "Recuperando o jogo")
+        game = savedInstanceState.get("GAME") as GameBT?
     }
 
     @SuppressLint("ResourceType")
@@ -50,8 +61,9 @@ class Playzim_Score_Activity : AppCompatActivity(), Animation.AnimationListener 
         update_score_screen()
     }
    fun initGameConf(){
-       game = GameBT("Trinta/Paulo","Marcio/Pordeus",3,4,7,true,10,TeamSide.TEAM_A)
-
+       if (game==null) {
+           game = GameBT("Time A", "Time B", 3, 4, 7, true, 10, TeamSide.TEAM_A)
+       }
        // Team Names
        val tvTeamA = findViewById<TextView>(R.id.tvTeamA)
        tvTeamA.text=game?.teamA
