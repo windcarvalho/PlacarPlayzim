@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.playzim.activities.Playzim_Score_Activity"
-    android:background="@drawable/placar_background">
+    android:background="@drawable/placar_background"
+    android:animateLayoutChanges="true" >
 
     <TextView
         android:id="@+id/tbStatus"
