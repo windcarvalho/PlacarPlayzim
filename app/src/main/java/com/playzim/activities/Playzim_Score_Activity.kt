@@ -1,9 +1,12 @@
 package com.playzim.activities
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
-import android.widget.Button
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.widget.Chronometer
 import android.widget.ImageView
 import android.widget.TextView
@@ -12,15 +15,26 @@ import com.playzim.placarbt.GameBT
 import com.playzim.placarbt.*
 
 
-class Playzim_Score_Activity : AppCompatActivity() {
+class Playzim_Score_Activity : AppCompatActivity(), Animation.AnimationListener {
    var game: GameBT? = null
+    lateinit var giraBola: Animation
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_playzim_score)
-        val intent = getIntent()
-        game = intent.getSerializableExtra("GAME") as GameBT
+        initAnimation()
         initGameConf()
         startGameCount()
+
+    }
+
+    @SuppressLint("ResourceType")
+    fun initAnimation() {
+        // load the animation
+        giraBola = AnimationUtils.loadAnimation(
+            applicationContext,
+            R.animator.gira_imageview
+        )
+        giraBola.setAnimationListener(this)
     }
 
     fun startGameCount() {
@@ -36,7 +50,7 @@ class Playzim_Score_Activity : AppCompatActivity() {
         update_score_screen()
     }
    fun initGameConf(){
-//       game = GameBT("Trinta/Paulo","Marcio/Pordeus",3,4,7,true,10,TeamSide.TEAM_A)
+       game = GameBT("Trinta/Paulo","Marcio/Pordeus",3,4,7,true,10,TeamSide.TEAM_A)
 
        // Team Names
        val tvTeamA = findViewById<TextView>(R.id.tvTeamA)
@@ -52,10 +66,12 @@ class Playzim_Score_Activity : AppCompatActivity() {
            tbStatus.text = "Saque: " + game?.teamA
            imgTeamA.visibility=ImageView.VISIBLE
            imgTeamB.visibility=ImageView.INVISIBLE
+           imgTeamA.startAnimation(giraBola)
        }else{
            tbStatus.text = "Saque: " + game?.teamB
            imgTeamB.visibility=ImageView.VISIBLE
            imgTeamA.visibility=ImageView.INVISIBLE
+           imgTeamB.startAnimation(giraBola)
        }
    }
     fun onClickBtTeamA(v: View){
@@ -122,15 +138,33 @@ class Playzim_Score_Activity : AppCompatActivity() {
                 tbStatus.text = "Saque: " + game?.teamA
                 imgTeamA.visibility=ImageView.VISIBLE
                 imgTeamB.visibility=ImageView.INVISIBLE
+                imgTeamB.clearAnimation()
+                imgTeamA.startAnimation(giraBola)
             }else{
                 tbStatus.text = "Saque: " + game?.teamB
                 imgTeamB.visibility=ImageView.VISIBLE
                 imgTeamA.visibility=ImageView.INVISIBLE
+                imgTeamA.clearAnimation()
+                imgTeamB.startAnimation(giraBola)
             }
 
         }
 
 
 
+    }
+
+    override fun onAnimationStart(animation: Animation?) {
+        if (animation ==giraBola) {
+            Log.v("pdm","animacao começando")
+        }
+    }
+
+    override fun onAnimationEnd(animation: Animation?) {
+        Log.v("pdm","animacao terminando")
+    }
+
+    override fun onAnimationRepeat(animation: Animation?) {
+        Log.v("pdm","animacao repetindo")
     }
 }
