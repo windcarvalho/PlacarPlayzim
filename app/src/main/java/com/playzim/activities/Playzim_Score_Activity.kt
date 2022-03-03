@@ -62,8 +62,11 @@ class Playzim_Score_Activity : AppCompatActivity(), Animation.AnimationListener 
     }
    fun initGameConf(){
        if (game==null) {
-           game = GameBT("Time A", "Time B", 3, 4, 7, true, 10, TeamSide.TEAM_A)
+           game = GameBT("Amistoso","Time A", "Time B", 3, 4, 7, true, 10, TeamSide.TEAM_A)
        }
+
+       val description = findViewById<TextView>(R.id.tvDescGame)
+       description.text=game?.descricao
        // Team Names
        val tvTeamA = findViewById<TextView>(R.id.tvTeamA)
        tvTeamA.text=game?.teamA
@@ -75,15 +78,26 @@ class Playzim_Score_Activity : AppCompatActivity(), Animation.AnimationListener 
        val imgTeamA:ImageView = findViewById<ImageView>(R.id.imageViewTeamA)
        val imgTeamB:ImageView = findViewById<ImageView>(R.id.imageViewTeamB)
        if (game?.currentServer ==TeamSide.TEAM_A) {
-           tbStatus.text = "Saque: " + game?.teamA
+//           tbStatus.text = "Saque: " + game?.teamA
            imgTeamA.visibility=ImageView.VISIBLE
            imgTeamB.visibility=ImageView.INVISIBLE
            imgTeamA.startAnimation(giraBola)
        }else{
-           tbStatus.text = "Saque: " + game?.teamB
+//           tbStatus.text = "Saque: " + game?.teamB
            imgTeamB.visibility=ImageView.VISIBLE
            imgTeamA.visibility=ImageView.INVISIBLE
            imgTeamB.startAnimation(giraBola)
+       }
+
+       if (game?.maxSets == 1){
+           val tvSetLabelA = findViewById<TextView>(R.id.tvSetLabelA)
+           val tvSetLabelB = findViewById<TextView>(R.id.tvSetLabelB)
+           val tvSetA = findViewById<TextView>(R.id.tvSetA)
+           val tvSetB = findViewById<TextView>(R.id.tvSetB)
+           tvSetA.visibility=View.INVISIBLE
+           tvSetB.visibility=View.INVISIBLE
+           tvSetLabelB.visibility=View.INVISIBLE
+           tvSetLabelA.visibility=View.INVISIBLE
        }
    }
     fun onClickBtTeamA(v: View){
@@ -117,10 +131,6 @@ class Playzim_Score_Activity : AppCompatActivity(), Animation.AnimationListener 
         }else{
             btTeamB.text=""+pontTeam
         }
-        //btTeamB.text= game?.points?.get(1).toString()
-       // if ((btTeamB.text as String).equals("0",true)){
-         //   btTeamB.text="00"
-        //}
 
 
         //update games
@@ -147,23 +157,31 @@ class Playzim_Score_Activity : AppCompatActivity(), Animation.AnimationListener 
             val imgTeamA:ImageView = findViewById<ImageView>(R.id.imageViewTeamA)
             val imgTeamB:ImageView = findViewById<ImageView>(R.id.imageViewTeamB)
             if (game?.currentServer ==TeamSide.TEAM_A) {
-                tbStatus.text = "Saque: " + game?.teamA
                 imgTeamA.visibility=ImageView.VISIBLE
                 imgTeamB.visibility=ImageView.INVISIBLE
                 imgTeamB.clearAnimation()
                 imgTeamA.startAnimation(giraBola)
             }else{
-                tbStatus.text = "Saque: " + game?.teamB
                 imgTeamB.visibility=ImageView.VISIBLE
                 imgTeamA.visibility=ImageView.INVISIBLE
                 imgTeamA.clearAnimation()
                 imgTeamB.startAnimation(giraBola)
             }
-
+            checkChangeSides()
         }
+    }
 
-
-
+    fun checkChangeSides(){
+        val tbStatus = findViewById<TextView>(R.id.tbStatus)
+        var scoreManager = game?.scoreManager
+        tbStatus.text = ""
+        if (scoreManager is NormalScore){
+            if ((((game!!.games[0] + game!!.games[1]) % 2) == 1) && ((game!!.points[0] + game!!.points[1]) == 0)){
+                tbStatus.text = "Troca de lados"
+            }
+        } else if (((game!!.points[0] + game!!.points[1])  != 0) && (((game!!.points[0] + game!!.points[1])  == 1) || (((game!!.points[0] + game!!.points[1]) %4) ==0))){
+            tbStatus.text = "Troca de lados"
+        }
     }
 
     override fun onAnimationStart(animation: Animation?) {
