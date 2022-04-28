@@ -8,6 +8,16 @@ import java.util.List;
 
 public class GameBT implements Serializable {
 
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    private String descricao;
     private String teamA;
     private String teamB;
     private int[] sets = {0, 0};
@@ -27,7 +37,8 @@ public class GameBT implements Serializable {
 		return nextFirstGameServer;
 	}
 
-	public GameBT(String teamA, String teamB, int maxSets, int maxGames, int maxTieBrake, boolean hasSuperTie, int maxSuperTie, TeamSide firstServer) {
+	public GameBT(String descricao, String teamA, String teamB, int maxSets, int maxGames, int maxTieBrake, boolean hasSuperTie, int maxSuperTie, TeamSide firstServer) {
+        this.descricao = descricao;
         this.teamA = teamA;
         this.teamB = teamB;
         this.maxSets = maxSets;
@@ -41,6 +52,10 @@ public class GameBT implements Serializable {
 
     public void setScoreManager(ScoreManager scoreManager) {
         this.scoreManager = scoreManager;
+    }
+
+    public ScoreManager getScoreManager() {
+        return scoreManager;
     }
 
     private ScoreManager scoreManager;

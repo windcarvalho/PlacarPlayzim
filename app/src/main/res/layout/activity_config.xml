@@ -13,20 +13,18 @@
         tools:context="com.playzim.activities.ConfigActivity">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/categoria_layout"
+            android:id="@+id/descricao_layout"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:hint="Descrição do Jogo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/categoria"
+                android:id="@+id/descricao"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Descrição do Jogo"
-                android:text="Beach Tennis"
                 tools:ignore="TouchTargetSizeCheck" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -36,16 +34,15 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintHorizontal_bias="0.501"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/categoria_layout">
+            app:layout_constraintTop_toBottomOf="@+id/descricao_layout">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/time1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Primeiro Time"
-                tools:text="Time A" />
+                android:hint="Primeiro Time" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -54,7 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.531"
+            app:layout_constraintHorizontal_bias="0.501"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/time1_layout">
 
@@ -62,8 +59,7 @@
                 android:id="@+id/time2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Segundo Time"
-                android:text="Time B" />
+                android:hint="Segundo Time" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -123,13 +119,13 @@
                 android:id="@+id/radioButton3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:checked="true"
                 android:text="1" />
 
             <RadioButton
                 android:id="@+id/radioButton4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:checked="true"
                 android:text="2" />
 
             <RadioButton
@@ -182,7 +178,6 @@
                 android:id="@+id/radioButton24"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:checked="true"
                 android:text="4" />
 
             <RadioButton
@@ -190,6 +185,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:checked="true"
                 android:text="6" />
             <RadioButton
                 android:id="@+id/radioButtonq215"
@@ -251,7 +247,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/qtdPtsTiePersonalizado"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="Defina um valor"
                 tools:ignore="TouchTargetSizeCheck" />
@@ -262,6 +258,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
+            android:checked="true"
             android:text="Último Set em modo SuperTie?"
             app:layout_constraintStart_toStartOf="@+id/ptsTieBrake"
             app:layout_constraintTop_toBottomOf="@+id/ptsTieBrake" />
@@ -287,6 +284,7 @@
                 android:id="@+id/radioButton1233333"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:checked="true"
                 android:text="10" />
 
             <RadioButton

@@ -31,9 +31,11 @@ public class NormalScore extends ScoreManager {
                 break;
         }
         if ((gameBT.getGames()[teamSide] >= gameBT.getMaxGames()) && ((abs(gameBT.getGames()[0] - gameBT.getGames()[1])) >= 2)) {
+            if (gameBT.getMaxSets() != 1){ // apenas para não zerar placar
+                gameBT.getGames()[0] = 0;
+                gameBT.getGames()[1] = 0;
+            }
             gameBT.getSets()[teamSide]++;
-            gameBT.getGames()[0] = 0;
-            gameBT.getGames()[1] = 0;
             setHasFinished = true;
         } else if ( (gameBT.getMaxGames() == 4) && (gameBT.getGames()[0] == 3) && (gameBT.getGames()[1] == 3)) { // Caso particular para Sets de 3 Games
             gameBT.setScoreManager(new TieBrakeScore(gameBT));

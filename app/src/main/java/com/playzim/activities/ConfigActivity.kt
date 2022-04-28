@@ -7,7 +7,6 @@ import android.view.View
 import android.widget.CheckBox
 import android.widget.RadioButton
 import android.widget.RadioGroup
-import android.widget.TextView
 import com.google.android.material.textfield.TextInputEditText
 import com.playzim.activities.placar.R
 import com.playzim.placarbt.GameBT
@@ -25,7 +24,8 @@ class ConfigActivity : AppCompatActivity() {
 
         var game: GameBT? = null
 
-        var categoria = findViewById<TextInputEditText>(R.id.categoria).text.toString()
+        var descricao = findViewById<TextInputEditText>(R.id.descricao).text.toString()
+//        var descricao = "Amistoso"
         var time1 = findViewById<TextInputEditText>(R.id.time1).text.toString()
         var time2 = findViewById<TextInputEditText>(R.id.time2).text.toString()
 
@@ -101,7 +101,7 @@ class ConfigActivity : AppCompatActivity() {
         }
 
 
-        game = GameBT (time1,time2,maxSets,maxGames,maxPontosTie,supertie,maxPontosSuperTie, primeiroSaque)
+        game = GameBT (descricao, time1,time2,maxSets,maxGames,maxPontosTie,supertie,maxPontosSuperTie, primeiroSaque)
         val it_match = Intent(this, Playzim_Score_Activity::class.java).apply{}
         it_match.putExtra("GAME", game);
         startActivity(it_match);

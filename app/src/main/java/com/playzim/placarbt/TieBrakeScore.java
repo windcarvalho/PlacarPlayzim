@@ -18,14 +18,16 @@ public class TieBrakeScore extends ScoreManager {
         gameBT.getPoints()[teamSide]++;
         changeServer();
         if ((gameBT.getPoints()[teamSide] >= gameBT.getMaxTieBrake()) && ((abs(gameBT.getPoints()[0] - gameBT.getPoints()[1])) >= 2)) {
-                gameBT.getSets()[teamSide]++;
+            if (gameBT.getMaxSets() != 1){ // apenas para não zerar placar
                 gameBT.getPoints()[0] = 0;
                 gameBT.getPoints()[1] = 0;
                 gameBT.getGames()[0] = 0;
-                gameBT.getGames()[1] = 0; 
+                gameBT.getGames()[1] = 0;
                 gameBT.setInitialServer(gameBT.getNextFirstGameServer());
-                setHasFinished = true;
             }
+            gameBT.getSets()[teamSide]++;
+            setHasFinished = true;
+        }
 
     }
 
