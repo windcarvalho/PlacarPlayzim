@@ -4,29 +4,75 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.playzim.activities.MainActivity"
-     >
-
-    <Button
-        android:id="@+id/btInitMatch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:onClick="onClickBtMatch"
-        android:text="Configurar Placar"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+    tools:context="com.playzim.activities.MainActivity">
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:id="@+id/imageInitTeamA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-30dp"
+        android:layout_marginEnd="-30dp"
+        android:rotation="22"
+        android:scaleX="3"
+        android:scaleY="3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/team_a_game_round" />
+
+    <ImageView
+        android:id="@+id/imageInitTeamB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="-30dp"
+        android:layout_marginBottom="-30dp"
+        android:rotation="37"
+        android:rotationX="-2"
+        android:scaleX="3"
+        android:scaleY="3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@mipmap/team_b_game" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center|center_horizontal"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/cor_positivo_menor" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="-40dp"
+            app:srcCompat="@drawable/cor_positivo_menor" />
+
+        <Button
+            android:id="@+id/btInitMatch"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:onClick="onClickBtMatch"
+            android:text="@string/iniciar_jogo"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:icon="@android:drawable/radiobutton_off_background"
+            app:iconPadding="8dp" />
+
+        <Button
+            android:id="@+id/btYoutube"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="Canal do Playzim"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:icon="@android:drawable/ic_menu_slideshow"
+            app:iconPadding="4dp" />
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
