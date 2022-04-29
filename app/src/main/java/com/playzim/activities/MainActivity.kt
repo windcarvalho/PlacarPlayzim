@@ -2,6 +2,7 @@ package com.playzim.activities
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -21,6 +22,13 @@ class MainActivity : AppCompatActivity() , Animation.AnimationListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         initAnimation()
+    }
+
+    fun onClickBtYoutube(v: View){
+        val it_Youtube = Intent(android.content.Intent.ACTION_VIEW)
+        it_Youtube.data= Uri.parse("https://www.youtube.com/c/PlayzimBeachTennis")
+        startActivity(it_Youtube);
+
     }
 
     fun onClickBtMatch(v: View){

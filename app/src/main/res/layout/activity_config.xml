@@ -9,9 +9,34 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="40dp"
+        android:padding="10dp"
         tools:context="com.playzim.activities.ConfigActivity">
 
+        <ImageView
+            android:id="@+id/imageInitTeamA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="-20dp"
+            android:rotation="-69"
+            android:rotationX="0"
+            android:scaleX="1.3"
+            android:scaleY="1.3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider2"
+            app:srcCompat="@mipmap/team_a_game" />
+
+        <ImageView
+            android:id="@+id/imageInitTeamB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="-20dp"
+            android:rotation="+69"
+            android:rotationX="0"
+            android:scaleX="1.3"
+            android:scaleY="1.3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button"
+            app:srcCompat="@mipmap/team_b_game" />
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/descricao_layout"
             android:layout_width="300dp"
@@ -25,6 +50,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Descrição do Jogo"
+                android:textSize="20sp"
                 tools:ignore="TouchTargetSizeCheck" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -32,7 +58,7 @@
             android:id="@+id/time1_layout"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.501"
             app:layout_constraintStart_toStartOf="parent"
@@ -42,14 +68,15 @@
                 android:id="@+id/time1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Primeiro Time" />
+                android:hint="Primeiro Time"
+                android:textSize="20sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/time2_layout"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.501"
             app:layout_constraintStart_toStartOf="parent"
@@ -59,17 +86,54 @@
                 android:id="@+id/time2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Segundo Time" />
+                android:hint="Segundo Time"
+                android:textSize="20sp" />
         </com.google.android.material.textfield.TextInputLayout>
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:onClick="onClickBtMatch"
+            android:text="Iniciar Jogo"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/time2_layout"
+            app:layout_constraintTop_toBottomOf="@+id/time2_layout" />
+
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="30dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button2" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Configurações"
+            android:textColor="@color/colorTeamB"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider2" />
 
         <TextView
             android:id="@+id/primeiroSaqueTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="20dp"
             android:text="Primeiro Saque"
-            app:layout_constraintStart_toStartOf="@+id/time2_layout"
-            app:layout_constraintTop_toBottomOf="@+id/time2_layout" />
+            android:textAlignment="textStart"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/button2"
+            app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
         <RadioGroup
             android:id="@+id/primeiroSaque"
@@ -84,26 +148,28 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:checked="true"
-                android:text="Time1" />
+                android:text="Time1"
+                android:textAlignment="textStart"
+                android:textSize="16sp" />
 
             <RadioButton
                 android:id="@+id/primSaqTime2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Time2" />
+                android:text="Time2"
+                android:textAlignment="textStart"
+                android:textSize="16sp" />
 
         </RadioGroup>
-
-
-
 
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="20dp"
             android:text="Quantidade de Sets"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="@+id/primeiroSaqueTxt"
             app:layout_constraintTop_toBottomOf="@+id/primeiroSaque" />
 
@@ -120,34 +186,39 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:checked="true"
-                android:text="1" />
+                android:text="1"
+                android:textSize="16sp" />
 
             <RadioButton
                 android:id="@+id/radioButton4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="2" />
+                android:text="2"
+                android:textSize="16sp" />
 
             <RadioButton
                 android:id="@+id/radioButton5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="3" />
+                android:text="3"
+                android:textSize="16sp" />
 
-            \
             <RadioButton
                 android:id="@+id/radioButtonq212"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="" />
+                android:text=""
+                android:textSize="16sp" />
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/qtdSetsPersonalizado"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Defina um valor"
+                android:inputType="number"
+                android:textSize="16sp"
                 tools:ignore="TouchTargetSizeCheck" />
         </RadioGroup>
 
@@ -155,8 +226,9 @@
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="20dp"
             android:text="Games por Set"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="@+id/textView"
             app:layout_constraintTop_toBottomOf="@+id/qtdSets" />
 
@@ -172,13 +244,15 @@
                 android:id="@+id/radioButton13"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="2" />
+                android:text="2"
+                android:textSize="16sp" />
 
             <RadioButton
                 android:id="@+id/radioButton24"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="4" />
+                android:text="4"
+                android:textSize="16sp" />
 
             <RadioButton
                 android:id="@+id/radioButtonq5"
@@ -186,13 +260,16 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:checked="true"
-                android:text="6" />
+                android:text="6"
+                android:textSize="16sp" />
+
             <RadioButton
                 android:id="@+id/radioButtonq215"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="" />
+                android:text=""
+                android:textSize="16sp" />
   <!-->         <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/ca434343tegoria"
                 android:layout_width="wrap_content"
@@ -207,6 +284,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Defina um valor"
+                android:inputType="number"
+                android:textSize="16sp"
                 tools:ignore="TouchTargetSizeCheck" />
 <!--            </com.google.android.material.textfield.TextInputLayout> -->
 
@@ -216,8 +295,9 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="20dp"
             android:text="Número de pontos para fechar o Tie-Brake"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="@+id/textView2"
             app:layout_constraintTop_toBottomOf="@+id/qtdGames" />
 
@@ -236,20 +316,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:checked="true"
-                android:text="7" />
+                android:text="7"
+                android:textSize="16sp" />
 
             <RadioButton
                 android:id="@+id/radioButtonq2122225"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="" />
+                android:text=""
+                android:textSize="16sp" />
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/qtdPtsTiePersonalizado"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="Defina um valor"
+                android:inputType="number"
+                android:textSize="16sp"
                 tools:ignore="TouchTargetSizeCheck" />
         </RadioGroup>
 
@@ -257,9 +341,10 @@
             android:id="@+id/supertie"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="20dp"
             android:checked="true"
             android:text="Último Set em modo SuperTie?"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="@+id/ptsTieBrake"
             app:layout_constraintTop_toBottomOf="@+id/ptsTieBrake" />
 
@@ -267,8 +352,9 @@
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="20dp"
             android:text="Número de pontos para fechar SuperTie"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="@+id/textView3"
             app:layout_constraintTop_toBottomOf="@+id/supertie" />
 
@@ -285,34 +371,42 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:checked="true"
-                android:text="10" />
+                android:text="10"
+                android:textSize="16sp" />
 
             <RadioButton
                 android:id="@+id/radioButtonq2133322225"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="" />
+                android:text=""
+                android:textSize="16sp" />
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/qtdPtsSuperTiePersonalizado"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Defina um valor"
+                android:inputType="number"
+                android:textSize="16sp"
                 tools:ignore="TouchTargetSizeCheck" />
         </RadioGroup>
 
         <Button
             android:id="@+id/button"
-            android:layout_width="wrap_content"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="20dp"
             android:onClick="onClickBtMatch"
             android:text="Iniciar Jogo"
+            android:textSize="20sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/pontosSuperTie" />
+
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
