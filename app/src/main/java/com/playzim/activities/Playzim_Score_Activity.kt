@@ -17,6 +17,7 @@ import com.playzim.placarbt.*
 class Playzim_Score_Activity : AppCompatActivity(), Animation.AnimationListener {
    var game: GameBT? = null
     lateinit var giraBola: Animation
+    lateinit var scaleStatus: Animation
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_playzim_score)
@@ -46,6 +47,11 @@ class Playzim_Score_Activity : AppCompatActivity(), Animation.AnimationListener 
             R.animator.gira_imageview
         )
         giraBola.setAnimationListener(this)
+        scaleStatus = AnimationUtils.loadAnimation(
+            applicationContext,
+            R.animator.aumenta_textview
+        )
+        scaleStatus.setAnimationListener(this)
     }
 
     fun startGameCount() {
@@ -151,7 +157,8 @@ class Playzim_Score_Activity : AppCompatActivity(), Animation.AnimationListener 
         //update game status
         val tbStatus = findViewById<TextView>(R.id.tbStatus)
         if (game?.isGameHasFinished() == true){
-            tbStatus.text = "Jogo Finalizado"
+            tbStatus.text = "  Jogo Finalizado  "
+            tbStatus.startAnimation(scaleStatus)
             stopGameCount() //stoping the Chronometer
         }else{
             val imgTeamA:ImageView = findViewById<ImageView>(R.id.imageViewTeamA)
@@ -177,10 +184,12 @@ class Playzim_Score_Activity : AppCompatActivity(), Animation.AnimationListener 
         tbStatus.text = ""
         if (scoreManager is NormalScore){
             if ((((game!!.games[0] + game!!.games[1]) % 2) == 1) && ((game!!.points[0] + game!!.points[1]) == 0)){
-                tbStatus.text = "Troca de lados"
+                tbStatus.text = "  Trocar de lados  "
+                tbStatus.startAnimation(scaleStatus)
             }
         } else if (((game!!.points[0] + game!!.points[1])  != 0) && (((game!!.points[0] + game!!.points[1])  == 1) || (((game!!.points[0] + game!!.points[1]) %4) ==0))){
-            tbStatus.text = "Troca de lados"
+            tbStatus.text = "  Trocar de lados  "
+            tbStatus.startAnimation(scaleStatus)
         }
     }
 

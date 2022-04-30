@@ -4,16 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.playzim.activities.Playzim_Score_Activity"
+    android:animateLayoutChanges="true"
     android:background="@drawable/placar_background"
-    android:animateLayoutChanges="true" >
+    tools:context="com.playzim.activities.Playzim_Score_Activity">
 
     <TextView
         android:id="@+id/tbStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:textSize="24sp"
+        android:layout_marginBottom="5dp"
+        android:background="@color/colorTeamB"
+        android:clickable="false"
+        android:text="  Começar Jogo!   "
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="34sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -53,6 +59,16 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/logoPlayzim"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/tvTimer"
+        app:layout_constraintStart_toStartOf="@+id/tvTimer"
+        app:layout_constraintTop_toBottomOf="@+id/tvTimer"
+        app:srcCompat="@drawable/cor_positivo_menor" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineMeioTela"
@@ -98,16 +114,18 @@
         android:id="@+id/btVoltar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
         android:drawableTop="@drawable/back_icon"
         android:minHeight="48dp"
         android:onClick="onClickUndo"
-        android:text="Pontuação"
+        android:text="Voltar Pontuação"
         android:textAlignment="center"
+
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btTeamB" />
+        app:layout_constraintStart_toStartOf="@+id/tvSetA"
+        app:layout_constraintTop_toBottomOf="@+id/tvGameTeamA" />
 
     <TextView
         android:id="@+id/tvGameLabelA"
