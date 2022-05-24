@@ -187,7 +187,7 @@ class Playzim_Score_Activity : AppCompatActivity(), Animation.AnimationListener 
                 tbStatus.text = "  Trocar de lados  "
                 tbStatus.startAnimation(scaleStatus)
             }
-        } else if (((game!!.points[0] + game!!.points[1])  != 0) && (((game!!.points[0] + game!!.points[1])  == 1) || (((game!!.points[0] + game!!.points[1]) %4) ==0))){
+        } else if (((game!!.points[0] + game!!.points[1])  != 0) && (((game!!.points[0] + game!!.points[1])  == 1) || ((((game!!.points[0] + game!!.points[1])-1) %4) ==0))){
             tbStatus.text = "  Trocar de lados  "
             tbStatus.startAnimation(scaleStatus)
         }
