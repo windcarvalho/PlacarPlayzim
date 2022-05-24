@@ -3,8 +3,11 @@ package com.playzim.activities
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.VibrationEffect
+import android.os.Vibrator
 import android.util.Log
 import android.view.View
 import android.view.Window
@@ -12,6 +15,7 @@ import android.view.WindowManager
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
+import androidx.core.content.getSystemService
 import com.playzim.activities.placar.R
 import com.playzim.placarbt.TeamSide
 
@@ -36,6 +40,23 @@ class MainActivity : AppCompatActivity() , Animation.AnimationListener {
 //        startActivity(it_match)
         val it_match = Intent(this, ConfigActivity::class.java).apply{}
         startActivity(it_match);
+
+    }
+    fun onClickBtPrevious(v: View){
+
+        val it_match = Intent(this, PreviousGamesActivity::class.java).apply{}
+        startActivity(it_match);
+
+        /*val buzzer = this.getSystemService<Vibrator>()
+        val pattern = longArrayOf(0, 200, 100, 300)
+        buzzer?.let {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                buzzer.vibrate(VibrationEffect.createWaveform(pattern, -1))
+            } else {
+                //deprecated in API 26
+                buzzer.vibrate(pattern, -1)
+            }
+        }*/
 
     }
 

@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.playzim.activities.placar">
 
+    <uses-permission android:name="android.permission.VIBRATE" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -17,6 +18,10 @@
             android:exported="false"
             android:screenOrientation="landscape"
             android:theme="@style/AppThemeFS" />
+        <activity
+            android:name="com.playzim.activities.PreviousGamesActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Placar"/>
         <activity
             android:name="com.playzim.activities.MainActivity"
             android:exported="true"
